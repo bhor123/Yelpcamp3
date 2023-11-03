@@ -45,6 +45,10 @@ app.use("/", indexRoutes);
 app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 
+app.get('/*', (req, res) => {
+	// Render the EJS file and send it as an HTML response
+	res.render('campgrounds/index');
+});
 app.listen(3000,() => {
 	console.log("The Yelpcamp Server Has Started");
 });
