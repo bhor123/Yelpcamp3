@@ -19,12 +19,23 @@
 					<p>
 						<em>Submitted By <%= campground.author.username %></em>
 					</p>
-					<% if(currentUser && campground.author.id.equals(currentUser._id)) { %>
+					<% if (campground && campground.author && currentUser && campground.author.id.equals(currentUser._id)) {%>
 						<a class="btn btn-warning" href="/campgrounds/<%= campground._id %>/edit">Edit</a>
 						<form style="display: inline" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
 							<button class="btn btn-danger">Delete</button>
 						</form>
-					<% } %>
+					<% } else {%>
+						// Handle the case when campground or its author or currentUser is not defined
+						<p>current user undefined</p>
+						<!-- console.log("current user undefined") -->
+					<% }%>
+					  
+					<!-- <% if(currentUser && campground.author.id.equals(currentUser._id)) { %>
+						<a class="btn btn-warning" href="/campgrounds/<%= campground._id %>/edit">Edit</a>
+						<form style="display: inline" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
+							<button class="btn btn-danger">Delete</button>
+						</form>
+					<% } %> -->
 				</div>
 			</div>
 			<div class="well">

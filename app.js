@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 mongoose.set('useUnifiedTopology',true);
 mongoose.set('useFindAndModify', false);
 app.set("view engine","ejs");
-mongoose.connect("mongodb://localhost:27017/yelp_camp_v10",{useNewUrlParser: true});
+mongoose.connect("mongodb+srv://bhorshrm:Dell1234@cluster0.4hhmtyx.mongodb.net/yelpcamp",{useNewUrlParser: true});
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 seedDB();
